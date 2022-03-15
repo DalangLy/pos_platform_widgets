@@ -48,15 +48,27 @@ class HomePage extends StatelessWidget {
               },
             ),
             ListTile(
+              title: const Text('DX Variation List'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-variation-list');
+              },
+            ),
+            ListTile(
+              title: const Text('DX Modifier'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-modifier');
+              },
+            ),
+            ListTile(
               title: const Text('DX Modifier Level'),
               onTap: (){
                 AutoRouter.of(context).pushNamed('dx-modifier-level');
               },
             ),
             ListTile(
-              title: const Text('DX Variation List'),
+              title: const Text('DX Customize'),
               onTap: (){
-                AutoRouter.of(context).pushNamed('dx-variation-list');
+                AutoRouter.of(context).pushNamed('dx-customize');
               },
             ),
           ],
