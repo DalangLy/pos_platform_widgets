@@ -42,6 +42,30 @@ class HomePage extends StatelessWidget {
               },
             ),
             ListTile(
+              title: const Text('DX Container'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-container');
+              },
+            ),
+            ListTile(
+              title: const Text('DX Transfer Item'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-transfer-item');
+              },
+            ),
+            ListTile(
+              title: const Text('DX Select Choice'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-select-choice');
+              },
+            ),
+            ListTile(
+              title: const Text('DX Authorize Step'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-authorize-step');
+              },
+            ),
+            ListTile(
               title: const Text('DX Choice'),
               onTap: (){
                 AutoRouter.of(context).pushNamed('dx-choice');

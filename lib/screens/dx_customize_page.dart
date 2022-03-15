@@ -11,7 +11,7 @@ class DXCustomizePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('DX Choice', style: TextStyle(color: Colors.black,),),
+        title: const Text('DX Customize', style: TextStyle(color: Colors.black,),),
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
