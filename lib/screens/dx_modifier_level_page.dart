@@ -10,7 +10,7 @@ class DXModifierLevelPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('DX Tab', style: TextStyle(color: Colors.black,),),
+        title: const Text('DX Modifier Level', style: TextStyle(color: Colors.black,),),
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
@@ -18,9 +18,9 @@ class DXModifierLevelPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: DXModifierLevel<String>(
-            items: [],
+            items: List.generate(100, (index) => '$index'),
             builder: (BuildContext context, item) {
-              return Text(item.toString(),);
+              return Chip(label: Text(item.toString(),),);
             },),
         ),
       ),

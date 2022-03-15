@@ -53,6 +53,12 @@ class HomePage extends StatelessWidget {
                 AutoRouter.of(context).pushNamed('dx-modifier-level');
               },
             ),
+            ListTile(
+              title: const Text('DX Variation List'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-variation-list');
+              },
+            ),
           ],
         ),
       ),

@@ -6,6 +6,7 @@ import 'package:post_platform_widgets/screens/dx_modifier_level_page.dart';
 import 'package:post_platform_widgets/screens/dx_tab_page.dart';
 import 'package:post_platform_widgets/screens/dx_table_order_page.dart';
 import 'package:post_platform_widgets/screens/dx_table_page.dart';
+import 'package:post_platform_widgets/screens/dx_variation_list_page.dart';
 
 import '../screens/dx_table_order_list_page.dart';
 
@@ -45,6 +46,10 @@ import '../screens/dx_table_order_list_page.dart';
         AutoRoute(
           path: 'dx-modifier-level',
           page: DXModifierLevelPage,
+        ),
+        AutoRoute(
+          path: 'dx-variation-list',
+          page: DXVariationListPage,
         ),
       ],
     ),

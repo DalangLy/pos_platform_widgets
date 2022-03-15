@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class DXModifierLevel<T> extends StatelessWidget {
   final List<T> items;
@@ -8,10 +7,10 @@ class DXModifierLevel<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      children: List.generate(200, (index) => Text('item $index'),),
+    return Wrap(
+      spacing: 8.0, // gap between adjacent chips
+      runSpacing: 4.0, // gap between lines
+      children: items.map<Widget>((item) => builder(context, item,)).toList(),
     );
   }
 }
