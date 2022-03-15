@@ -43,26 +43,23 @@ class DXTransferItem<T> extends StatelessWidget {
   }
 
   Widget _buildActions(){
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: SizedBox(
-        height: 40.0,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: actions.map<Widget>((action) {
-            final int currentIndex = actions.indexOf(action);
-            final bool lastIndex = currentIndex >= (actions.length-1);
-            if(currentIndex == 0){
-              return Padding(padding: const EdgeInsets.only(right: 8.0), child: action,);
-            }
-            else if(lastIndex){
-              return Padding(padding: const EdgeInsets.only(left: 8.0), child: action,);
-            }
-            else{
-              return Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0), child: action,);
-            }
-          }).toList(),
-        ),
+    return SizedBox(
+      height: 40.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: actions.map<Widget>((action) {
+          final int currentIndex = actions.indexOf(action);
+          final bool lastIndex = currentIndex >= (actions.length-1);
+          if(currentIndex == 0){
+            return Padding(padding: const EdgeInsets.only(right: 8.0), child: action,);
+          }
+          else if(lastIndex){
+            return Padding(padding: const EdgeInsets.only(left: 8.0), child: action,);
+          }
+          else{
+            return Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0), child: action,);
+          }
+        }).toList(),
       ),
     );
   }

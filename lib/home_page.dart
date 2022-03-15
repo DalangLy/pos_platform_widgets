@@ -42,6 +42,12 @@ class HomePage extends StatelessWidget {
               },
             ),
             ListTile(
+              title: const Text('DX Order'),
+              onTap: (){
+                AutoRouter.of(context).pushNamed('dx-order');
+              },
+            ),
+            ListTile(
               title: const Text('DX Container'),
               onTap: (){
                 AutoRouter.of(context).pushNamed('dx-container');
