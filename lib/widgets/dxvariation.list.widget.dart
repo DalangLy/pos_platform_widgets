@@ -13,7 +13,6 @@ class DXVariationList extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 10.0,
-        childAspectRatio: 4,
       ),
       itemCount: children.length,
       itemBuilder: (BuildContext context, int index) {
