@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:post_platform_widgets/home_page.dart';
 import 'package:post_platform_widgets/screens/dx_authorize_step_page.dart';
+import 'package:post_platform_widgets/screens/dx_cash_page.dart';
 import 'package:post_platform_widgets/screens/dx_choice_page.dart';
 import 'package:post_platform_widgets/screens/dx_container_page.dart';
 import 'package:post_platform_widgets/screens/dx_customize_page.dart';
+import 'package:post_platform_widgets/screens/dx_item_detail_page.dart';
 import 'package:post_platform_widgets/screens/dx_loading_dialog_page.dart';
 import 'package:post_platform_widgets/screens/dx_modifier_level_page.dart';
 import 'package:post_platform_widgets/screens/dx_modifier_page.dart';
+import 'package:post_platform_widgets/screens/dx_number_pad_page.dart';
 import 'package:post_platform_widgets/screens/dx_order_page.dart';
 import 'package:post_platform_widgets/screens/dx_select_choice_page.dart';
 import 'package:post_platform_widgets/screens/dx_tab_page.dart';
@@ -90,6 +93,18 @@ import '../screens/dx_table_order_list_page.dart';
         AutoRoute(
           path: 'dx-table-info',
           page: DXTableInfoPage,
+        ),
+        AutoRoute(
+          path: 'dx-number-pad',
+          page: DXNumberPadPage,
+        ),
+        AutoRoute(
+          path: 'dx-cash',
+          page: DXCashPage,
+        ),
+        AutoRoute(
+          path: 'dx-item-detail',
+          page: DXItemDetailPage,
         ),
       ],
     ),

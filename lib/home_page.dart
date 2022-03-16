@@ -1,116 +1,72 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  final List<_NavigationItem> _navigation = const <_NavigationItem>[
+    _NavigationItem(title: 'DX Loading Dialog', path: 'dx-loading-dialog'),
+    _NavigationItem(title: 'DX Number Pad', path: 'dx-number-pad'),
+    _NavigationItem(title: 'DX Cash', path: 'dx-cash'),
+    _NavigationItem(title: 'DX Table', path: 'dx-table'),
+    _NavigationItem(title: 'DX Table Order', path: 'dx-table-order'),
+    _NavigationItem(title: 'DX Table Order List', path: 'dx-table-order-list'),
+    _NavigationItem(title: 'DX Tab', path: 'dx-tab'),
+    _NavigationItem(title: 'DX Table Info', path: 'dx-table-info'),
+    _NavigationItem(title: 'DX Order', path: 'dx-order'),
+    _NavigationItem(title: 'DX Container', path: 'dx-container'),
+    _NavigationItem(title: 'DX Transfer Item', path: 'dx-transfer-item'),
+    _NavigationItem(title: 'DX Select Choice', path: 'dx-select-choice'),
+    _NavigationItem(title: 'DX Authorize Step', path: 'dx-authorize-step'),
+    _NavigationItem(title: 'DX Choice', path: 'dx-choice'),
+    _NavigationItem(title: 'DX Variation List', path: 'dx-variation-list'),
+    _NavigationItem(title: 'DX Modifier', path: 'dx-modifier'),
+    _NavigationItem(title: 'DX Modifier Level', path: 'dx-modifier-level'),
+    _NavigationItem(title: 'DX Customize', path: 'dx-customize'),
+    _NavigationItem(title: 'DX Item Detail', path: 'dx-item-detail'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Platform Widgets'),),
       drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: const Text('DX Loading Dialog'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-loading-dialog');
+        child: AnimatedBuilder(
+          animation: AutoRouter.of(context),
+          builder: (context, child,) {
+            final StackRouter _autoRouter = AutoRouter.of(context);
+            String path = '';
+            if(_autoRouter.currentSegments.length > 1){
+              path = AutoRouter.of(context).currentSegments[1].path;
+            }
+            return ListView.builder(
+              itemCount: _navigation.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(_navigation[index].title),
+                  selected: _navigation[index].path == path,
+                  onTap: (){
+                    AutoRouter.of(context).pushNamed(_navigation[index].path,);
+                  },
+                );
               },
-            ),
-            ListTile(
-              title: const Text('DX Table'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-table');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Table Order'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-table-order');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Table Order List'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-table-order-list');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Tab'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-tab');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Table Info'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-table-info');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Order'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-order');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Container'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-container');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Transfer Item'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-transfer-item');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Select Choice'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-select-choice');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Authorize Step'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-authorize-step');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Choice'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-choice');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Variation List'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-variation-list');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Modifier'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-modifier');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Modifier Level'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-modifier-level');
-              },
-            ),
-            ListTile(
-              title: const Text('DX Customize'),
-              onTap: (){
-                AutoRouter.of(context).pushNamed('dx-customize');
-              },
-            ),
-          ],
+            );
+          }
         ),
       ),
       body: const AutoRouter(),
     );
   }
+}
+
+class _NavigationItem{
+  final String title;
+  final String path;
+  const _NavigationItem({required this.title, required this.path,});
 }

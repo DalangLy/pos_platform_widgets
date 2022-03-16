@@ -12,7 +12,7 @@ class DXContainerPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('DX Transfer Item', style: TextStyle(color: Colors.black,),),
+        title: const Text('DX Container', style: TextStyle(color: Colors.black,),),
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),

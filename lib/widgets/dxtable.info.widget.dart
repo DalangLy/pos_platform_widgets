@@ -17,7 +17,7 @@ class DXTableInfo extends StatelessWidget {
             date,
             const Spacer(),
             const Icon(Icons.timer),
-            const VerticalDivider(),
+            const VerticalDivider(color: Colors.transparent, width: 5,),
             time,
           ],
         ),
