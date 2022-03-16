@@ -14,25 +14,25 @@ import 'package:auto_route/auto_route.dart' as _i21;
 import 'package:flutter/material.dart' as _i22;
 
 import '../home_page.dart' as _i1;
-import '../screens/dx_authorize_step_page.dart' as _i13;
+import '../screens/dx_authorize_step_page.dart' as _i14;
 import '../screens/dx_cash_page.dart' as _i19;
-import '../screens/dx_choice_page.dart' as _i7;
-import '../screens/dx_container_page.dart' as _i15;
-import '../screens/dx_customize_page.dart' as _i11;
+import '../screens/dx_choice_page.dart' as _i8;
+import '../screens/dx_container_page.dart' as _i16;
+import '../screens/dx_customize_page.dart' as _i12;
 import '../screens/dx_item_detail_page.dart' as _i20;
 import '../screens/dx_loading_dialog_page.dart' as _i2;
-import '../screens/dx_modifier_level_page.dart' as _i8;
-import '../screens/dx_modifier_page.dart' as _i10;
-import '../screens/dx_number_pad_page.dart' as _i18;
-import '../screens/dx_order_page.dart' as _i16;
-import '../screens/dx_select_choice_page.dart' as _i12;
-import '../screens/dx_tab_page.dart' as _i6;
-import '../screens/dx_table_info_page.dart' as _i17;
-import '../screens/dx_table_order_list_page.dart' as _i5;
-import '../screens/dx_table_order_page.dart' as _i4;
-import '../screens/dx_table_page.dart' as _i3;
-import '../screens/dx_transfer_item_page.dart' as _i14;
-import '../screens/dx_variation_list_page.dart' as _i9;
+import '../screens/dx_modifier_level_page.dart' as _i9;
+import '../screens/dx_modifier_page.dart' as _i11;
+import '../screens/dx_number_pad_page.dart' as _i3;
+import '../screens/dx_order_page.dart' as _i17;
+import '../screens/dx_select_choice_page.dart' as _i13;
+import '../screens/dx_tab_page.dart' as _i7;
+import '../screens/dx_table_info_page.dart' as _i18;
+import '../screens/dx_table_order_list_page.dart' as _i6;
+import '../screens/dx_table_order_page.dart' as _i5;
+import '../screens/dx_table_page.dart' as _i4;
+import '../screens/dx_transfer_item_page.dart' as _i15;
+import '../screens/dx_variation_list_page.dart' as _i10;
 
 class AppRouter extends _i21.RootStackRouter {
   AppRouter([_i22.GlobalKey<_i22.NavigatorState>? navigatorKey])
@@ -48,69 +48,69 @@ class AppRouter extends _i21.RootStackRouter {
       return _i21.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.DXLoadingDialogPage());
     },
+    DXNumberPadRoute.name: (routeData) {
+      return _i21.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i3.DXNumberPadPage());
+    },
     DXTableRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.DXTablePage());
+          routeData: routeData, child: const _i4.DXTablePage());
     },
     DXTableOrderRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.DXTableOrderPage());
+          routeData: routeData, child: const _i5.DXTableOrderPage());
     },
     DXTableOrderListRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.DXTableOrderListPage());
+          routeData: routeData, child: const _i6.DXTableOrderListPage());
     },
     DXTabRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i6.DXTabPage());
+          routeData: routeData, child: const _i7.DXTabPage());
     },
     DXChoiceRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i7.DXChoicePage());
+          routeData: routeData, child: const _i8.DXChoicePage());
     },
     DXModifierLevelRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.DXModifierLevelPage());
+          routeData: routeData, child: const _i9.DXModifierLevelPage());
     },
     DXVariationListRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.DXVariationListPage());
+          routeData: routeData, child: const _i10.DXVariationListPage());
     },
     DXModifierRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.DXModifierPage());
+          routeData: routeData, child: const _i11.DXModifierPage());
     },
     DXCustomizeRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.DXCustomizePage());
+          routeData: routeData, child: const _i12.DXCustomizePage());
     },
     DXSelectChoiceRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.DXSelectChoicePage());
+          routeData: routeData, child: const _i13.DXSelectChoicePage());
     },
     DXAuthorizeStepRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i13.DXAuthorizeStepPage());
+          routeData: routeData, child: const _i14.DXAuthorizeStepPage());
     },
     DXTransferItemRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i14.DXTransferItemPage());
+          routeData: routeData, child: const _i15.DXTransferItemPage());
     },
     DXContainerRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i15.DXContainerPage());
+          routeData: routeData, child: const _i16.DXContainerPage());
     },
     DXOrderRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i16.DXOrderPage());
+          routeData: routeData, child: const _i17.DXOrderPage());
     },
     DXTableInfoRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i17.DXTableInfoPage());
-    },
-    DXNumberPadRoute.name: (routeData) {
-      return _i21.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i18.DXNumberPadPage());
+          routeData: routeData, child: const _i18.DXTableInfoPage());
     },
     DXCashRoute.name: (routeData) {
       return _i21.MaterialPageX<dynamic>(
@@ -128,10 +128,12 @@ class AppRouter extends _i21.RootStackRouter {
           _i21.RouteConfig('#redirect',
               path: '',
               parent: HomeRoute.name,
-              redirectTo: 'dx-loading-dialog',
+              redirectTo: 'dx-number-pad',
               fullMatch: true),
           _i21.RouteConfig(DXLoadingDialogRoute.name,
               path: 'dx-loading-dialog', parent: HomeRoute.name),
+          _i21.RouteConfig(DXNumberPadRoute.name,
+              path: 'dx-number-pad', parent: HomeRoute.name),
           _i21.RouteConfig(DXTableRoute.name,
               path: 'dx-table', parent: HomeRoute.name),
           _i21.RouteConfig(DXTableOrderRoute.name,
@@ -162,8 +164,6 @@ class AppRouter extends _i21.RootStackRouter {
               path: 'dx-order', parent: HomeRoute.name),
           _i21.RouteConfig(DXTableInfoRoute.name,
               path: 'dx-table-info', parent: HomeRoute.name),
-          _i21.RouteConfig(DXNumberPadRoute.name,
-              path: 'dx-number-pad', parent: HomeRoute.name),
           _i21.RouteConfig(DXCashRoute.name,
               path: 'dx-cash', parent: HomeRoute.name),
           _i21.RouteConfig(DXItemDetailRoute.name,
@@ -191,7 +191,16 @@ class DXLoadingDialogRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.DXTablePage]
+/// [_i3.DXNumberPadPage]
+class DXNumberPadRoute extends _i21.PageRouteInfo<void> {
+  const DXNumberPadRoute()
+      : super(DXNumberPadRoute.name, path: 'dx-number-pad');
+
+  static const String name = 'DXNumberPadRoute';
+}
+
+/// generated route for
+/// [_i4.DXTablePage]
 class DXTableRoute extends _i21.PageRouteInfo<void> {
   const DXTableRoute() : super(DXTableRoute.name, path: 'dx-table');
 
@@ -199,7 +208,7 @@ class DXTableRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.DXTableOrderPage]
+/// [_i5.DXTableOrderPage]
 class DXTableOrderRoute extends _i21.PageRouteInfo<void> {
   const DXTableOrderRoute()
       : super(DXTableOrderRoute.name, path: 'dx-table-order');
@@ -208,7 +217,7 @@ class DXTableOrderRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.DXTableOrderListPage]
+/// [_i6.DXTableOrderListPage]
 class DXTableOrderListRoute extends _i21.PageRouteInfo<void> {
   const DXTableOrderListRoute()
       : super(DXTableOrderListRoute.name, path: 'dx-table-order-list');
@@ -217,7 +226,7 @@ class DXTableOrderListRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.DXTabPage]
+/// [_i7.DXTabPage]
 class DXTabRoute extends _i21.PageRouteInfo<void> {
   const DXTabRoute() : super(DXTabRoute.name, path: 'dx-tab');
 
@@ -225,7 +234,7 @@ class DXTabRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.DXChoicePage]
+/// [_i8.DXChoicePage]
 class DXChoiceRoute extends _i21.PageRouteInfo<void> {
   const DXChoiceRoute() : super(DXChoiceRoute.name, path: 'dx-choice');
 
@@ -233,7 +242,7 @@ class DXChoiceRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.DXModifierLevelPage]
+/// [_i9.DXModifierLevelPage]
 class DXModifierLevelRoute extends _i21.PageRouteInfo<void> {
   const DXModifierLevelRoute()
       : super(DXModifierLevelRoute.name, path: 'dx-modifier-level');
@@ -242,7 +251,7 @@ class DXModifierLevelRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.DXVariationListPage]
+/// [_i10.DXVariationListPage]
 class DXVariationListRoute extends _i21.PageRouteInfo<void> {
   const DXVariationListRoute()
       : super(DXVariationListRoute.name, path: 'dx-variation-list');
@@ -251,7 +260,7 @@ class DXVariationListRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.DXModifierPage]
+/// [_i11.DXModifierPage]
 class DXModifierRoute extends _i21.PageRouteInfo<void> {
   const DXModifierRoute() : super(DXModifierRoute.name, path: 'dx-modifier');
 
@@ -259,7 +268,7 @@ class DXModifierRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.DXCustomizePage]
+/// [_i12.DXCustomizePage]
 class DXCustomizeRoute extends _i21.PageRouteInfo<void> {
   const DXCustomizeRoute() : super(DXCustomizeRoute.name, path: 'dx-customize');
 
@@ -267,7 +276,7 @@ class DXCustomizeRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.DXSelectChoicePage]
+/// [_i13.DXSelectChoicePage]
 class DXSelectChoiceRoute extends _i21.PageRouteInfo<void> {
   const DXSelectChoiceRoute()
       : super(DXSelectChoiceRoute.name, path: 'dx-select-choice');
@@ -276,7 +285,7 @@ class DXSelectChoiceRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.DXAuthorizeStepPage]
+/// [_i14.DXAuthorizeStepPage]
 class DXAuthorizeStepRoute extends _i21.PageRouteInfo<void> {
   const DXAuthorizeStepRoute()
       : super(DXAuthorizeStepRoute.name, path: 'dx-authorize-step');
@@ -285,7 +294,7 @@ class DXAuthorizeStepRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.DXTransferItemPage]
+/// [_i15.DXTransferItemPage]
 class DXTransferItemRoute extends _i21.PageRouteInfo<void> {
   const DXTransferItemRoute()
       : super(DXTransferItemRoute.name, path: 'dx-transfer-item');
@@ -294,7 +303,7 @@ class DXTransferItemRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i15.DXContainerPage]
+/// [_i16.DXContainerPage]
 class DXContainerRoute extends _i21.PageRouteInfo<void> {
   const DXContainerRoute() : super(DXContainerRoute.name, path: 'dx-container');
 
@@ -302,7 +311,7 @@ class DXContainerRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.DXOrderPage]
+/// [_i17.DXOrderPage]
 class DXOrderRoute extends _i21.PageRouteInfo<void> {
   const DXOrderRoute() : super(DXOrderRoute.name, path: 'dx-order');
 
@@ -310,21 +319,12 @@ class DXOrderRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i17.DXTableInfoPage]
+/// [_i18.DXTableInfoPage]
 class DXTableInfoRoute extends _i21.PageRouteInfo<void> {
   const DXTableInfoRoute()
       : super(DXTableInfoRoute.name, path: 'dx-table-info');
 
   static const String name = 'DXTableInfoRoute';
-}
-
-/// generated route for
-/// [_i18.DXNumberPadPage]
-class DXNumberPadRoute extends _i21.PageRouteInfo<void> {
-  const DXNumberPadRoute()
-      : super(DXNumberPadRoute.name, path: 'dx-number-pad');
-
-  static const String name = 'DXNumberPadRoute';
 }
 
 /// generated route for

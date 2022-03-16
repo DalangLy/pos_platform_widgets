@@ -32,6 +32,11 @@ import '../screens/dx_table_order_list_page.dart';
         AutoRoute(
           path: 'dx-loading-dialog',
           page: DXLoadingDialogPage,
+          //initial: true,
+        ),
+        AutoRoute(
+          path: 'dx-number-pad',
+          page: DXNumberPadPage,
           initial: true,
         ),
         AutoRoute(
@@ -93,10 +98,6 @@ import '../screens/dx_table_order_list_page.dart';
         AutoRoute(
           path: 'dx-table-info',
           page: DXTableInfoPage,
-        ),
-        AutoRoute(
-          path: 'dx-number-pad',
-          page: DXNumberPadPage,
         ),
         AutoRoute(
           path: 'dx-cash',

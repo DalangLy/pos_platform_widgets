@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/dxnumber.pad.widget.dart';
 
 class DXNumberPadPage extends StatelessWidget {
@@ -16,16 +15,25 @@ class DXNumberPadPage extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Center(
           child: SizedBox(
             width: 400,
             child: DXNumberPad(
-              input: TextField(
+              input: const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder()
                 ),
               ),
+              onClearClick: (){
+                print('clear');
+              },
+              onNumberClick: (String data){
+                print(data);
+              },
+              onRemoveClick: (){
+                print('Remove');
+              },
             ),
           ),
         ),
