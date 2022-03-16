@@ -17,13 +17,16 @@ class DXChoicePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: DXChoice(
-            title: const Text('Channels'),
-            children: <Widget>[
-              ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle), label: const Text('Dine-In'),),
-              ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle), label: const Text('Delivery'),),
-              ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle), label: const Text('Take Away'),),
-            ],
+          child: SizedBox(
+            width: 300,
+            child: DXChoice(
+              title: const Text('Channels'),
+              children: <Widget>[
+                ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle), label: const Text('Dine-In'),),
+                ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle), label: const Text('Delivery'),),
+                ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle), label: const Text('Take Away'),),
+              ],
+            ),
           ),
         ),
       ),

@@ -128,7 +128,7 @@ class AppRouter extends _i21.RootStackRouter {
           _i21.RouteConfig('#redirect',
               path: '',
               parent: HomeRoute.name,
-              redirectTo: 'dx-number-pad',
+              redirectTo: 'dx-loading-dialog',
               fullMatch: true),
           _i21.RouteConfig(DXLoadingDialogRoute.name,
               path: 'dx-loading-dialog', parent: HomeRoute.name),

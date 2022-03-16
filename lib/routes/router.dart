@@ -32,12 +32,11 @@ import '../screens/dx_table_order_list_page.dart';
         AutoRoute(
           path: 'dx-loading-dialog',
           page: DXLoadingDialogPage,
-          //initial: true,
+          initial: true,
         ),
         AutoRoute(
           path: 'dx-number-pad',
           page: DXNumberPadPage,
-          initial: true,
         ),
         AutoRoute(
           path: 'dx-table',
