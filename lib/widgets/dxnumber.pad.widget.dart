@@ -32,6 +32,7 @@ class DXNumberPad extends StatelessWidget {
     _CustomGridItem(child: Text('0'), value: '0', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 3)),
     _CustomGridItem(child: Text('00'), value: '0.0', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 3)),
     _CustomGridItem(child: Text('.'), value: '.', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 3)),
+    _CustomGridItem(child: Text('test'), value: 'test', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 4, posX: 0, posY: 4)),
   ];
 
   @override
@@ -158,8 +159,24 @@ class _CustomGridLayout extends SliverGridLayout{
   @override
   double computeMaxScrollOffset(int childCount) {
     //generate height of number key pad to store all number key pad
-    final int numberOfColumn = (childCount / crossAxisCount).ceil();
-    return (eachKeySize * (childCount / crossAxisCount).ceil()) + (gap * numberOfColumn-1);
+    return _getFullNumberPadHeight();
+  }
+
+  double _getFullNumberPadHeight(){
+    double result = 0;
+    for (_CustomGridGeometry element in geometry) {
+      final _CustomGridGeometry lastGeo = geometry.where((element) => element.posX == 0).last;
+      final bool isLast = geometry.indexOf(element) == geometry.indexOf(lastGeo);
+      if(element.posX == 0){
+        if(isLast){
+          result += (element.colSpan * eachKeySize);
+        }
+        else{
+          result += (element.colSpan * eachKeySize) + gap;
+        }
+      }
+    }
+    return result;
   }
 
   @override
