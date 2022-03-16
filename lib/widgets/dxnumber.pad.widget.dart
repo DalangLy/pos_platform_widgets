@@ -32,7 +32,6 @@ class DXNumberPad extends StatelessWidget {
     _CustomGridItem(child: Text('0'), value: '0', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 3)),
     _CustomGridItem(child: Text('00'), value: '0.0', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 3)),
     _CustomGridItem(child: Text('.'), value: '.', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 3)),
-    _CustomGridItem(child: Text('test'), value: 'test', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 4, posX: 0, posY: 4)),
   ];
 
   @override
