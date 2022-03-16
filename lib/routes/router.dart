@@ -10,6 +10,7 @@ import 'package:post_platform_widgets/screens/dx_modifier_page.dart';
 import 'package:post_platform_widgets/screens/dx_order_page.dart';
 import 'package:post_platform_widgets/screens/dx_select_choice_page.dart';
 import 'package:post_platform_widgets/screens/dx_tab_page.dart';
+import 'package:post_platform_widgets/screens/dx_table_info_page.dart';
 import 'package:post_platform_widgets/screens/dx_table_order_page.dart';
 import 'package:post_platform_widgets/screens/dx_table_page.dart';
 import 'package:post_platform_widgets/screens/dx_transfer_item_page.dart';
@@ -85,6 +86,10 @@ import '../screens/dx_table_order_list_page.dart';
         AutoRoute(
           path: 'dx-order',
           page: DXOrderPage,
+        ),
+        AutoRoute(
+          path: 'dx-table-info',
+          page: DXTableInfoPage,
         ),
       ],
     ),

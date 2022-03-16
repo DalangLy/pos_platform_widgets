@@ -20,6 +20,7 @@ class DXContainer extends StatelessWidget {
             ],
           ),
         ),
+        const Divider(color: Colors.transparent,),
         Expanded(
           child: child,
         ),
