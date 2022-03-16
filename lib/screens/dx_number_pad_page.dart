@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/dxnumber.pad.widget.dart';
+
 class DXNumberPadPage extends StatelessWidget {
   const DXNumberPadPage({Key? key}) : super(key: key);
 
@@ -14,11 +16,17 @@ class DXNumberPadPage extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Center(
           child: SizedBox(
             width: 400,
-            child: Container(),
+            child: DXNumberPad(
+              input: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder()
+                ),
+              ),
+            ),
           ),
         ),
       ),
