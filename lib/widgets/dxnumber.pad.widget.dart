@@ -48,8 +48,17 @@ class DXNumberPad extends StatelessWidget {
               crossAxisCount: 4,
             ),
             children: numberKeys.map<Widget>((e) {
-              return ElevatedButton(
+              return TextButton(
                 child: e.child,
+                style: ButtonStyle(
+                  // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  //   RoundedRectangleBorder(
+                  //     side: const BorderSide(color: Colors.black,),
+                  //     borderRadius: BorderRadius.circular(20.0),),
+                  // ),
+                  elevation: MaterialStateProperty.all(1.0,),
+                  backgroundColor: MaterialStateProperty.all(Colors.white,),
+                ),
                 onPressed: (){
                   switch(e.keyType){
                     case _KeyType.numberPad:
