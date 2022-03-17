@@ -22,9 +22,9 @@ class DXChoicePage extends StatelessWidget {
             child: DXChoice(
               title: const Text('Channels'),
               children: <Widget>[
-                ListTile(leading: const Icon(Icons.circle,), title: const Text('Dine-In'), onTap: (){},),
-                ListTile(leading: const Icon(Icons.circle,), title: const Text('Delivery'), onTap: (){},),
-                ListTile(leading: const Icon(Icons.circle,), title: const Text('Take Away'), onTap: (){},),
+                ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: const Text('Dine-In'), onTap: (){},),
+                ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: const Text('Delivery'), onTap: (){},),
+                ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: const Text('Take Away'), onTap: (){},),
               ],
             ),
           ),

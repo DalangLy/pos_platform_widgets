@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class DXChoice extends StatelessWidget {
   final Widget title;
   final List<Widget> children;
@@ -8,26 +7,39 @@ class DXChoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        title,
-        const Divider(color: Colors.transparent,),
-        Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
-              childAspectRatio: 3,
-            ),
-            itemCount: children.length,
-            itemBuilder: (context, index){
-              return children[index];
-            },
-          ),
-        ),
-      ],
+    return LayoutBuilder(
+        builder: (context, constraint) {
+          const double gap = 10.0;//gap between each element
+          const int crossAxisCount = 2;//number of element per row
+
+          //do calculation
+          const double totalGapValue = gap * (crossAxisCount - 1);
+          final double eachElementWidth = constraint.maxWidth / crossAxisCount;
+          final double eachElementWidthInPercentageWithoutGap = (eachElementWidth / constraint.maxWidth) * 100;
+          final double eachElementWidthInFractionalWithoutGap = eachElementWidthInPercentageWithoutGap/100;
+          final double totalGapInPercentage = (totalGapValue / constraint.maxWidth) * 100;
+          final double eachGapInPercentage = totalGapInPercentage /crossAxisCount;
+          final double eachGapInFractional = eachGapInPercentage/100;
+          final double eachElementWidthInFractional = eachElementWidthInFractionalWithoutGap - eachGapInFractional;
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              title,
+              const Divider(color: Colors.transparent,),
+              Wrap(
+                runSpacing: gap,
+                spacing: gap,
+                children: children.map<Widget>((e){
+                  return FractionallySizedBox(
+                    widthFactor: eachElementWidthInFractional,
+                    child: ClipRect(child: e),
+                  );
+                }).toList(),
+              ),
+            ],
+          );
+        }
     );
   }
 }
