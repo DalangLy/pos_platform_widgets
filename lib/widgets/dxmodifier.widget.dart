@@ -5,7 +5,8 @@ class DXModifier extends StatelessWidget {
   final Widget title;
   final List<DXChoice> children;
   final int index;
-  const DXModifier({Key? key, required this.title, required this.children, required this.index,}) : super(key: key);
+  final Function(int index)? onChange;
+  const DXModifier({Key? key, required this.title, required this.children, required this.index, this.onChange,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +53,12 @@ class DXModifier extends StatelessWidget {
                     child: ListTile(
                       tileColor: Colors.blue,
                       title: e.title,
+                      onTap: (){
+                        if(onChange != null){
+                          final int selectedIndex = children.indexOf(e);
+                          onChange!(selectedIndex);
+                        }
+                      },
                     ),
                   );
                 }).toList(),

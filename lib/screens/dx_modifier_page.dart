@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:post_platform_widgets/widgets/dxchoice.widget.dart';
 import 'package:post_platform_widgets/widgets/dxmodifier.widget.dart';
 
-class DXModifierPage extends StatelessWidget {
+class DXModifierPage extends StatefulWidget {
   const DXModifierPage({Key? key}) : super(key: key);
 
+  @override
+  State<DXModifierPage> createState() => _DXModifierPageState();
+}
+
+class _DXModifierPageState extends State<DXModifierPage> {
+  int _selectIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +28,12 @@ class DXModifierPage extends StatelessWidget {
             width: 600,
             child: DXModifier(
               title: const Text('Modifier'),
-              index: 1,
+              index: _selectIndex,
+              onChange: (index){
+                setState(() {
+                  _selectIndex = index;
+                });
+              },
               children: <DXChoice>[
                 DXChoice(
                   title: const Text('Sizes'),
