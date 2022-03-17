@@ -19,7 +19,7 @@ class DXChoice extends StatelessWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 10.0,
               crossAxisSpacing: 10.0,
-              mainAxisExtent: 40,
+              childAspectRatio: 3,
             ),
             itemCount: children.length,
             itemBuilder: (context, index){

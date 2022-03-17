@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver.dart';
 import 'package:flutter/src/rendering/sliver_grid.dart';
 
-class DXNumberPad extends StatelessWidget {
+class DXNumberPad extends StatefulWidget {
   final Widget input;
   final Function(String data)? onNumberClick;
   final VoidCallback? onRemoveClick;
@@ -16,29 +16,35 @@ class DXNumberPad extends StatelessWidget {
     this.onClearClick,
   }) : super(key: key);
 
-  static const List<_CustomGridItem> numberKeys = <_CustomGridItem>[
-    _CustomGridItem(child: Text('7'), value: '7', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 0)),
-    _CustomGridItem(child: Text('8'), value: '8', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 0)),
-    _CustomGridItem(child: Text('9'), value: '9', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 0)),
-    _CustomGridItem(child: Icon(Icons.chevron_left), keyType: _KeyType.remove, geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 3, posY: 0)),
-    _CustomGridItem(child: Text('4'), value: '4', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 1)),
-    _CustomGridItem(child: Text('5'), value: '5', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 1)),
-    _CustomGridItem(child: Text('6'), value: '6', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 1)),
-    _CustomGridItem(child: Text('C'), keyType: _KeyType.clear, geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 3, posY: 1)),
-    _CustomGridItem(child: Text('1'), value: '1', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 2)),
-    _CustomGridItem(child: Text('2'), value: '2', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 2)),
-    _CustomGridItem(child: Text('3'), value: '3', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 2)),
-    _CustomGridItem(child: Text('Enter'), keyType: _KeyType.enter, geometry: _CustomGridGeometry(colSpan: 2, rowSpan: 1, posX: 3, posY: 2)),
-    _CustomGridItem(child: Text('0'), value: '0', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 3)),
-    _CustomGridItem(child: Text('00'), value: '0.0', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 3)),
-    _CustomGridItem(child: Text('.'), value: '.', geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 3)),
+  @override
+  State<DXNumberPad> createState() => _DXNumberPadState();
+}
+
+class _DXNumberPadState extends State<DXNumberPad> {
+
+  late final List<_CustomGridItem> numberKeys = <_CustomGridItem>[
+    _CustomGridItem(child: Text('7', style: Theme.of(context).textTheme.headline4,), value: '7', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 0)),
+    _CustomGridItem(child: Text('8', style: Theme.of(context).textTheme.headline4,), value: '8', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 0)),
+    _CustomGridItem(child: Text('9', style: Theme.of(context).textTheme.headline4,), value: '9', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 0)),
+    const _CustomGridItem(child: Icon(Icons.backspace), keyType: _KeyType.remove, geometry: _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 3, posY: 0)),
+    _CustomGridItem(child: Text('4', style: Theme.of(context).textTheme.headline4,), value: '4', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 1)),
+    _CustomGridItem(child: Text('5', style: Theme.of(context).textTheme.headline4,), value: '5', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 1)),
+    _CustomGridItem(child: Text('6', style: Theme.of(context).textTheme.headline4,), value: '6', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 1)),
+    _CustomGridItem(child: Text('C', style: Theme.of(context).textTheme.headline4,), keyType: _KeyType.clear, geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 3, posY: 1)),
+    _CustomGridItem(child: Text('1', style: Theme.of(context).textTheme.headline4,), value: '1', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 2)),
+    _CustomGridItem(child: Text('2', style: Theme.of(context).textTheme.headline4,), value: '2', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 2)),
+    _CustomGridItem(child: Text('3', style: Theme.of(context).textTheme.headline4,), value: '3', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 2)),
+    const _CustomGridItem(child: Text('Enter'), keyType: _KeyType.enter, geometry: _CustomGridGeometry(colSpan: 2, rowSpan: 1, posX: 3, posY: 2)),
+    _CustomGridItem(child: Text('0', style: Theme.of(context).textTheme.headline4,), value: '0', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 0, posY: 3)),
+    _CustomGridItem(child: Text('00', style: Theme.of(context).textTheme.headline4,), value: '0.0', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 1, posY: 3)),
+    _CustomGridItem(child: Text('.', style: Theme.of(context).textTheme.headline4,), value: '.', geometry: const _CustomGridGeometry(colSpan: 1, rowSpan: 1, posX: 2, posY: 3)),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        input,
+        widget.input,
         const Divider(color: Colors.transparent,),
         Flexible(
           child: GridView(
@@ -62,22 +68,22 @@ class DXNumberPad extends StatelessWidget {
                 onPressed: (){
                   switch(e.keyType){
                     case _KeyType.numberPad:
-                      if(onNumberClick == null){
+                      if(widget.onNumberClick == null){
                         break;
                       }
-                      onNumberClick!(e.value);
+                      widget.onNumberClick!(e.value);
                       break;
                     case _KeyType.clear:
-                      if(onClearClick == null){
+                      if(widget.onClearClick == null){
                         break;
                       }
-                      onClearClick!();
+                      widget.onClearClick!();
                       break;
                     case _KeyType.remove:
-                      if(onRemoveClick == null){
+                      if(widget.onRemoveClick == null){
                         break;
                       }
-                      onRemoveClick!();
+                      widget.onRemoveClick!();
                       break;
                     case _KeyType.enter:
                     // TODO: Handle this case.
