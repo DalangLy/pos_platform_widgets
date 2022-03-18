@@ -20,7 +20,9 @@ class DXTablePage extends StatelessWidget {
           child: Container(
             width: 200,
             height: 200,
-            color: Colors.grey,
+            decoration: BoxDecoration(
+              border: Border.all(),
+            ),
             child: const DXTable(
               child: Text('1'),
             ),
