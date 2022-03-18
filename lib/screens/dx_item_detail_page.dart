@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:post_platform_widgets/widgets/dxitem.detail.widget.dart';
 
 import '../widgets/dxchoice.widget.dart';
-import '../widgets/dxcustomize.widget.dart';
+import '../widgets/dxcustomize.item.widget.dart';
 import '../widgets/dxmodifier.level.widget.dart';
 import '../widgets/dxmodifier.widget.dart';
 import '../widgets/dxvariation.list.widget.dart';
@@ -67,7 +67,7 @@ class DXItemDetailPage extends StatelessWidget {
           children: List.generate(10, (index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: DXCustomize(
+              child: DXCustomizeItem(
                 leading: _buildSampleIncrementNumber(),
                 title: const Text('Honey 30 ML'),
                 trail: const Text('\$ 0.50'),

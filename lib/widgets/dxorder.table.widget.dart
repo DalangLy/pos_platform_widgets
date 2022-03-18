@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DXOrder extends StatelessWidget {
+class DXOrderTable extends StatelessWidget {
   final Widget leadingTitle;
   final Widget leadingSub;
   final Widget trailTitle;
   final Widget trailSub;
   final List<Widget> transactions;
   final List<Widget> actions;
-  const DXOrder({Key? key, required this.leadingTitle, required this.leadingSub, required this.trailTitle, required this.trailSub, required this.transactions, required this.actions,}) : super(key: key);
+  const DXOrderTable({Key? key, required this.leadingTitle, required this.leadingSub, required this.trailTitle, required this.trailSub, required this.transactions, required this.actions,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_platform_widgets/widgets/dxorder.widget.dart';
+import 'package:post_platform_widgets/widgets/dxorder.table.widget.dart';
 
 class DXOrderPage extends StatelessWidget {
   const DXOrderPage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class DXOrderPage extends StatelessWidget {
           child: SizedBox(
             width: 350,
             height: 260,
-            child: DXOrder(
+            child: DXOrderTable(
               leadingTitle: const Text('#000002', style: TextStyle(fontWeight: FontWeight.bold),),
               leadingSub: Text('2021/10/08, 11:11:11 AM', style: Theme.of(context).textTheme.labelSmall,),
               trailTitle: const Text('Unknown', style: TextStyle(fontWeight: FontWeight.bold),),

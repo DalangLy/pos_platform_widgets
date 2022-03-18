@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/dxcustomize.widget.dart';
+import '../widgets/dxcustomize.item.widget.dart';
 
 class DXCustomizePage extends StatelessWidget {
   const DXCustomizePage({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class DXCustomizePage extends StatelessWidget {
         child: Center(
           child: SizedBox(
             width: 300,
-            child: DXCustomize(
+            child: DXCustomizeItem(
               leading: _buildSampleIncrementNumber(),
               title: const Text('Honey 30 ML'),
               trail: const Text('\$ 0.50'),

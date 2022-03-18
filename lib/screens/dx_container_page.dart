@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:post_platform_widgets/widgets/dxcontainer.widget.dart';
 
-import '../widgets/dxorder.widget.dart';
+import '../widgets/dxorder.table.widget.dart';
 
 class DXContainerPage extends StatelessWidget {
   const DXContainerPage({Key? key}) : super(key: key);
@@ -41,7 +41,7 @@ class DXContainerPage extends StatelessWidget {
         crossAxisSpacing: 10.0,
       ),
       itemBuilder: (context, index){
-        return DXOrder(
+        return DXOrderTable(
           leadingTitle: const Text('#000002', style: TextStyle(fontWeight: FontWeight.bold),),
           leadingSub: Text('2021/10/08, 11:11:11 AM', style: Theme.of(context).textTheme.labelSmall,),
           trailTitle: const Text('Unknown', style: TextStyle(fontWeight: FontWeight.bold),),

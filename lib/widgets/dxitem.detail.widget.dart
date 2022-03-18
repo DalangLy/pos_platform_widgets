@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_platform_widgets/widgets/dxcustomize.widget.dart';
+import 'package:post_platform_widgets/widgets/dxcustomize.item.widget.dart';
 
 class DXItemDetail extends StatelessWidget {
   final Widget title;
