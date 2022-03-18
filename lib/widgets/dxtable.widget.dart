@@ -9,8 +9,11 @@ class DXTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onClick,
-      child: _TablePaint(
-        child: child,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: _TablePaint(
+          child: child,
+        ),
       ),
     );
   }
