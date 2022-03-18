@@ -20,8 +20,12 @@ class DXModifierLevelPage extends StatelessWidget {
           child: DXModifierLevel<String>(
             items: List.generate(100, (index) => '$index'),
             builder: (BuildContext context, item) {
-              return Chip(label: Text(item.toString(),),);
-            },),
+              return Text(
+                item.toString(),
+                style: Theme.of(context).textTheme.bodyText1,
+              );
+            },
+          ),
         ),
       ),
     );

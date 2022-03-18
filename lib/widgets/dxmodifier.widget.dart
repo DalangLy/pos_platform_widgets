@@ -14,7 +14,7 @@ class DXModifier extends StatelessWidget {
         builder: (context, constraint) {
 
           const double headerGap = 10.0;
-          const int headerCrossAxisCount = 7;
+          const int headerCrossAxisCount = 5;
           const double gap = 10.0;//gap between each element
           const int crossAxisCount = 4;//number of element per row
 
@@ -50,20 +50,34 @@ class DXModifier extends StatelessWidget {
                 children: children.map<Widget>((e){
                   return FractionallySizedBox(
                     widthFactor: eachHeaderElementWidthInFractional,
-                    child: ListTile(
-                      tileColor: Colors.blue,
-                      title: e.title,
-                      onTap: (){
-                        if(onChange != null){
-                          final int selectedIndex = children.indexOf(e);
-                          onChange!(selectedIndex);
-                        }
-                      },
+                    child: ClipRect(
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: TextButton(
+                          style: ButtonStyle(
+                              elevation: MaterialStateProperty.all<double>(0.0),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  // side: const BorderSide(),
+                                ),
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFEEEEEE))
+                          ),
+                          onPressed: (){
+                            if(onChange != null){
+                              final int selectedIndex = children.indexOf(e);
+                              onChange!(selectedIndex);
+                            }
+                          },
+                          child: e.title,
+                        ),
+                      ),
                     ),
                   );
                 }).toList(),
               ),
-              const Divider(color: Colors.transparent,),
+              const Divider(color: Colors.transparent, height: 6,),
               Wrap(
                 runSpacing: gap,
                 spacing: gap,

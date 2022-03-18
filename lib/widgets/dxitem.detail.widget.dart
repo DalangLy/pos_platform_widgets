@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:post_platform_widgets/widgets/dxcustomize.widget.dart';
 
 class DXItemDetail extends StatelessWidget {
   final Widget title;
@@ -18,7 +19,7 @@ class DXItemDetail extends StatelessWidget {
         const Divider(color: Colors.transparent,),
         const _CustomTabBar(),
         const Divider(color: Colors.transparent,),
-        Flexible(
+        Expanded(
           child: DecoratedBox(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0,),
@@ -26,13 +27,15 @@ class DXItemDetail extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+              child: ListView(
+                //crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Flexible(child: variation),
-                  Flexible(child: modifier,),
-                  Flexible(child: modifierLevel,),
-                  Flexible(child: customize,)
+                  variation,
+                  const Divider(color: Colors.transparent,),
+                  modifier,
+                  const Divider(color: Colors.transparent,),
+                  modifierLevel,
+                  customize,
                 ],
               ),
             ),
@@ -44,6 +47,12 @@ class DXItemDetail extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
 
 class _CustomTabBar extends StatefulWidget {
   const _CustomTabBar({Key? key}) : super(key: key);

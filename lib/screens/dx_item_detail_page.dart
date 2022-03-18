@@ -63,20 +63,17 @@ class DXItemDetailPage extends StatelessWidget {
       children: [
         const Text('Customize'),
         const Divider(color: Colors.transparent, height: 5,),
-        Expanded(
-          child: ListView.separated(
-            itemBuilder: (context, index) {
-              return DXCustomize(
+        Column(
+          children: List.generate(10, (index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: DXCustomize(
                 leading: _buildSampleIncrementNumber(),
                 title: const Text('Honey 30 ML'),
                 trail: const Text('\$ 0.50'),
-              );
-            },
-            separatorBuilder: (context, index){
-              return const Divider(color: Colors.transparent, height: 5,);
-            },
-            itemCount: 5,
-          ),
+              ),
+            );
+          }).toList(),
         ),
       ],
     );
@@ -105,10 +102,14 @@ class DXItemDetailPage extends StatelessWidget {
 
   Widget _buildModifierLevel(){
     return DXModifierLevel<String>(
-      items: List.generate(4, (index) => '$index'),
+      items: List.generate(5, (index) => '$index'),
       builder: (BuildContext context, item) {
-        return Chip(label: Text(item.toString(),),);
-      },);
+        return Text(
+          item.toString(),
+          style: Theme.of(context).textTheme.bodyText1,
+        );
+      },
+    );
   }
 
   Widget _buildModifier(){
