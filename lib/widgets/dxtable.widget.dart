@@ -43,7 +43,7 @@ class _TablePaint extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 alignment: Alignment.center,
-                child: ClipRect(
+                child: ClipOval(
                   child: child,
                 ),
               ),
@@ -60,7 +60,7 @@ class _MyPainter extends CustomPainter{
   void paint(Canvas canvas, Size size) {
     const Color color = Colors.green;
     final Paint chairPaint = Paint();
-    chairPaint.strokeWidth = 10.0;
+    chairPaint.strokeWidth = size.width * (1/20);
     chairPaint.strokeCap = StrokeCap.round;
     chairPaint.color = color;
     canvas.drawLine(Offset(size.width * (3/10), size.height * (1/10)), Offset(size.width * (7/10), size.height * (1/10),), chairPaint,);//top chair

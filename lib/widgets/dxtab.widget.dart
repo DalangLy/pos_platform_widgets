@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 
 
-class DXTab<T> extends StatelessWidget {
+class DXTab<T> extends StatefulWidget {
   final List<T> items;
   final Widget Function(BuildContext context, T item,) builder;
   final Widget? next;
   final Widget? prev;
   const DXTab({Key? key, required this.items, required this.builder, this.next, this.prev,}) : super(key: key);
 
+  @override
+  State<DXTab<T>> createState() => _DXTabState<T>();
+}
+
+class _DXTabState<T> extends State<DXTab<T>> {
+  late ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = ScrollController();
+  }
+  double _scrolledViewport = 0;
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -19,8 +33,17 @@ class DXTab<T> extends StatelessWidget {
         children: [
           SizedBox(
             height: double.infinity,
-            child: prev ?? ElevatedButton(
-              onPressed: (){},
+            child: widget.prev ?? ElevatedButton(
+              onPressed: (){
+                if(_controller.position.pixels > _controller.position.minScrollExtent){
+                  _scrolledViewport -= _controller.position.extentInside;
+                  _controller.animateTo(
+                    _scrolledViewport,
+                    curve: Curves.linear,
+                    duration: const Duration(milliseconds: 500),
+                  );
+                }
+              },
               style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -36,10 +59,11 @@ class DXTab<T> extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0,),
               child: ListView.separated(
+                controller:  _controller,
                 separatorBuilder: (context, index) {
                   return const SizedBox(width: 5.0,);
                 },
-                itemCount: items.length,
+                itemCount: widget.items.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return ClipRRect(
@@ -47,7 +71,7 @@ class DXTab<T> extends StatelessWidget {
                     child: SizedBox(
                       width: 90,
                       height: double.infinity,
-                      child: builder(context, items[index]),
+                      child: widget.builder(context, widget.items[index]),
                     ),
                   );
                 },
@@ -57,8 +81,17 @@ class DXTab<T> extends StatelessWidget {
           const SizedBox(width: 10.0,),
           SizedBox(
             height: double.infinity,
-            child: next ?? ElevatedButton(
-              onPressed: (){},
+            child: widget.next ?? ElevatedButton(
+              onPressed: (){
+                if(_controller.position.pixels < _controller.position.maxScrollExtent){
+                  _scrolledViewport += _controller.position.extentInside;
+                  _controller.animateTo(
+                    _scrolledViewport,
+                    curve: Curves.linear,
+                    duration: const Duration(milliseconds: 500),
+                  );
+                }
+              },
               style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(

@@ -18,13 +18,13 @@ class DXTablePage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Container(
-            width: 200,
-            height: 200,
+            width: 300,
+            height: 300,
             decoration: BoxDecoration(
               border: Border.all(),
             ),
             child: const DXTable(
-              child: Text('1'),
+              child: Text('7', style: TextStyle(fontSize: 90),),
             ),
           ),
         ),
