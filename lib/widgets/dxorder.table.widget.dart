@@ -25,7 +25,7 @@ class DXOrderTable extends StatelessWidget {
             Expanded(
               child: Column(
                 children: transactions.map<Widget>((transaction) {
-                  return Padding(padding: const EdgeInsets.symmetric(vertical: 8.0), child: transaction,);
+                  return Padding(padding: const EdgeInsets.symmetric(vertical: 5.0), child: transaction,);
                 }).toList(),
               ),
             ),
