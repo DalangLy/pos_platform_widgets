@@ -10,6 +10,8 @@ class DXTabPage extends StatefulWidget {
 
 class _DXTabPageState extends State<DXTabPage> {
   final List<String> items = List.generate(100, (index) => 'Item $index');
+
+  int _selectedTabIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +29,14 @@ class _DXTabPageState extends State<DXTabPage> {
             height: 60.0,
             child: DXTab(
               itemCount: items.length,
-              builder: (BuildContext context, item) {
-                return ElevatedButton(onPressed: (){}, child: Text(item.toString(),),);
+              selectedIndex: _selectedTabIndex,
+              builder: (BuildContext context, index) {
+                return Text(items[index].toString(),);
+              },
+              onChanged: (index){
+                setState(() {
+                  _selectedTabIndex = index;
+                });
               },
             ),
           ),

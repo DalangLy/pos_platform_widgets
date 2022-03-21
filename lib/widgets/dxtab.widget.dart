@@ -7,7 +7,9 @@ class DXTab extends StatefulWidget {
   final DXTabControl Function(BuildContext context, DXTabControlsDetail details)? controlsBuilder;
   final double gap;
   final double itemRadius;
-  const DXTab({Key? key, required this.itemCount, required this.builder, this.controlsBuilder, this.gap = 10.0, this.itemRadius = 10.0,}) : super(key: key);
+  final Function(int index)? onChanged;
+  final int selectedIndex;
+  const DXTab({Key? key, required this.itemCount, required this.builder, this.controlsBuilder, this.gap = 10.0, this.itemRadius = 10.0, this.onChanged, required this.selectedIndex,}) : super(key: key);
 
   @override
   State<DXTab> createState() => _DXTabState();
@@ -63,7 +65,15 @@ class _DXTabState extends State<DXTab> {
               child: SizedBox(
                 width: 90,
                 height: double.infinity,
-                child: widget.builder(context, index),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(widget.selectedIndex == index ? Colors.blue : Colors.grey),
+                  ),
+                  onPressed: (){
+                    widget.onChanged!(index);
+                  },
+                  child: widget.builder(context, index),
+                ),
               ),
             );
           },
