@@ -55,6 +55,7 @@ class _DXChoicePageState extends State<DXChoicePage> {
             child: ListBody(
               children: const <Widget>[
                 Text('21-03-2022'),
+                Text('- No Update'),
               ],
             ),
           ),

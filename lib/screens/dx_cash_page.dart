@@ -62,6 +62,7 @@ class _DXCashPageState extends State<DXCashPage> {
             child: ListBody(
               children: const <Widget>[
                 Text('21-03-2022'),
+                Text('- No Update'),
               ],
             ),
           ),
