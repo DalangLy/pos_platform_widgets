@@ -10,6 +10,7 @@ class DXTableOrderListPage extends StatefulWidget {
 }
 
 class _DXTableOrderListPageState extends State<DXTableOrderListPage> {
+  final List<String> tableOrders =  const ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +32,10 @@ class _DXTableOrderListPageState extends State<DXTableOrderListPage> {
       ),
       body: SafeArea(
         child: Center(
-          child: DXTableOrderList<String>(
-            items: const ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'],
-            builder: (context, item,){
-              return DXTableOrder(title: Text(item.toString()),);
+          child: DXTableOrderList(
+            itemCount: tableOrders.length,
+            builder: (context, index,){
+              return DXTableOrder(title: Text(tableOrders[index].toString()),);
             },
           ),
         ),
