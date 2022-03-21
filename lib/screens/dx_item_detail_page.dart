@@ -231,6 +231,8 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
     );
   }
 
+  int selectedVariationListChannelIndex = 0;
+
   Widget _buildVariationList(){
     return DXVariationList(
       title: const Text('Variation*'),
@@ -274,7 +276,7 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
                   children: [
                     SizedBox(
                       width: 40,
-                      child: Icon(_selectedIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
+                      child: Icon(selectedVariationListChannelIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
                     ),
                     Text(items[index])
                   ],
@@ -284,7 +286,7 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
           },
           onChanged: (index){
             setState(() {
-              _selectedIndex = index;
+              selectedVariationListChannelIndex = index;
             });
           },
         ),
