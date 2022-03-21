@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DXModifierLevel<T> extends StatelessWidget {
-  final List<T> items;
-  final Widget Function(BuildContext context, T item,) builder;
-  const DXModifierLevel({Key? key, required this.items, required this.builder,}) : super(key: key);
+  final int itemCount;
+  final Widget Function(BuildContext context, int index,) builder;
+  final Function(int index,)? onChanged;
+  final int selectedIndex;
+  const DXModifierLevel({Key? key, required this.itemCount, required this.builder, this.onChanged, required this.selectedIndex,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class DXModifierLevel<T> extends StatelessWidget {
           runSpacing: gap,
           spacing: gap,
           alignment: WrapAlignment.end,
-          children: items.map<Widget>((e){
+          children: List.generate(itemCount, (index) {
             return FractionallySizedBox(
               widthFactor: eachElementWidthInFractional,
               child: ClipRect(
@@ -34,22 +36,27 @@ class DXModifierLevel<T> extends StatelessWidget {
                   width: double.infinity,
                   child: TextButton(
                     style: ButtonStyle(
-                        elevation: MaterialStateProperty.all<double>(0.0),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            // side: const BorderSide(),
-                          ),
+                      elevation: MaterialStateProperty.all<double>(0.0),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          // side: const BorderSide(),
                         ),
-                        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFEEEEEE))
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(selectedIndex == index ? Colors.blue : const Color(0xFFEEEEEE),),
                     ),
-                    onPressed: (){},
-                    child: builder(context, e,),
+                    onPressed: (){
+                      if(onChanged == null){
+                        return;
+                      }
+                      onChanged!(index);
+                    },
+                    child: builder(context, index,),
                   ),
                 ),
               ),
             );
-          }).toList(),
+          }),
         );
       }
     );

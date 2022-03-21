@@ -29,7 +29,7 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
       body: SafeArea(
         child: Center(
           child: SizedBox(
-            width: 500,
+            width: 600,
             child: DXItemDetail(
               title: Container(
                 height: 50,
@@ -138,14 +138,22 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
     );
   }
 
+  final List<String> _modifierLevels = List.generate(5, (index) => '$index');
+  int _selectedModifierLevelIndex = 0;
   Widget _buildModifierLevel(){
     return DXModifierLevel<String>(
-      items: List.generate(5, (index) => '$index'),
-      builder: (BuildContext context, item) {
+      itemCount: _modifierLevels.length,
+      selectedIndex: _selectedModifierLevelIndex,
+      builder: (BuildContext context, int index) {
         return Text(
-          item.toString(),
+          _modifierLevels[index].toString(),
           style: Theme.of(context).textTheme.bodyText1,
         );
+      },
+      onChanged: (index){
+        setState(() {
+          _selectedModifierLevelIndex = index;
+        });
       },
     );
   }
@@ -170,17 +178,53 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
           title: const Text('Sizes'),
           itemCount: 1,
           builder: (context, index){
-            return ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'));
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10.0,),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  children: const [
+                    SizedBox(
+                      width: 40,
+                      child: Icon(Icons.radio_button_checked,),
+                    ),
+                    Text('Normal \$ 1.99')
+                  ],
+                ),
+              ),
+            );
           },
         ),
         DXChoice(
           title: const Text('Channels'),
           itemCount: items.length,
           builder: (context, index){
-            return ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: Text(items[index]), onTap: (){},);
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10.0,),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      child: Icon(_selectedIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
+                    ),
+                    Text(items[index])
+                  ],
+                ),
+              ),
+            );
           },
           onChanged: (index){
-            print(index);
+            setState(() {
+              _selectedIndex = index;
+            });
           },
         ),
       ],
@@ -195,17 +239,53 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
           title: const Text('Sizes'),
           itemCount: 1,
           builder: (context, index){
-            return ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'));
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10.0,),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  children: const [
+                    SizedBox(
+                      width: 40,
+                      child: Icon(Icons.radio_button_checked,),
+                    ),
+                    Text('Normal \$ 1.99')
+                  ],
+                ),
+              ),
+            );
           },
         ),
         DXChoice(
           title: const Text('Channels'),
           itemCount: items.length,
           builder: (context, index){
-            return ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: Text(items[index]), onTap: (){},);
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10.0,),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      child: Icon(_selectedIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
+                    ),
+                    Text(items[index])
+                  ],
+                ),
+              ),
+            );
           },
           onChanged: (index){
-            print(index);
+            setState(() {
+              _selectedIndex = index;
+            });
           },
         ),
       ],

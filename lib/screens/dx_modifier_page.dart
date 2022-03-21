@@ -21,13 +21,9 @@ class _DXModifierPageState extends State<DXModifierPage> {
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      _showBugsDialog();
-    });
   }
 
-
+  int _selectedChannelIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,17 +52,60 @@ class _DXModifierPageState extends State<DXModifierPage> {
                   title: const Text('Sizes'),
                   itemCount: 1,
                   builder: (context, index){
-                    return ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'));
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10.0,),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          children: const [
+                            SizedBox(
+                              width: 40,
+                              child: Icon(Icons.radio_button_checked),
+                            ),
+                            Text('Normal \$ 1.99'),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  onChanged: (index){
+                    setState(() {
+                      print('hello');
+                      _selectedChannelIndex = index;
+                    });
                   },
                 ),
                 DXChoice(
                   title: const Text('Channels'),
                   itemCount: items.length,
                   builder: (context, index){
-                    return ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: Text(items[index]), onTap: (){},);
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10.0,),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              child: Icon(_selectedChannelIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
+                            ),
+                            Text(items[index])
+                          ],
+                        ),
+                      ),
+                    );
                   },
                   onChanged: (index){
-                    print(index);
+                    setState(() {
+                      print('hello');
+                      _selectedChannelIndex = index;
+                    });
                   },
                 ),
               ],
@@ -99,35 +138,6 @@ class _DXModifierPageState extends State<DXModifierPage> {
                 Text('- Customize children cross axis count'),
                 Text('- Using Builder instead of Static List to improve performance and customizable'),
                 Text('- Fixed Bug on Scroll Limited Error'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-
-
-  Future<void> _showBugsDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Warning'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: const <Widget>[
-                Text('This Widget Has Bugs, Working On Progress to Fix it.'),
               ],
             ),
           ),

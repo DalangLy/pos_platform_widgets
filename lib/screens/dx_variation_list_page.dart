@@ -17,6 +17,8 @@ class _DXVariationListPageState extends State<DXVariationListPage> {
     'Take Away'
   ];
 
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +41,53 @@ class _DXVariationListPageState extends State<DXVariationListPage> {
                   title: const Text('Sizes'),
                   itemCount: 1,
                   builder: (context, index){
-                    return ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'));
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10.0,),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          children: const [
+                            SizedBox(
+                              width: 40,
+                              child: Icon(Icons.radio_button_checked,),
+                            ),
+                            Text('Normal \$ 1.99'),
+                          ],
+                        ),
+                      ),
+                    );
                   },
                 ),
                 DXChoice(
                   title: const Text('Channels'),
                   itemCount: items.length,
                   builder: (context, index){
-                    return ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: Text(items[index]), onTap: (){},);
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10.0,),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              child: Icon(_selectedIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
+                            ),
+                            Text(items[index])
+                          ],
+                        ),
+                      ),
+                    );
                   },
                   onChanged: (index){
-                    print(index);
+                    setState(() {
+                      _selectedIndex = index;
+                    });
                   },
                 ),
               ],

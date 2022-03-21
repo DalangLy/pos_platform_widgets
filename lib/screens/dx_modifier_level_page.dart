@@ -9,6 +9,8 @@ class DXModifierLevelPage extends StatefulWidget {
 }
 
 class _DXModifierLevelPageState extends State<DXModifierLevelPage> {
+  final List<String> items = List.generate(100, (index) => '$index');
+  int _selectedModifierLevelIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +24,19 @@ class _DXModifierLevelPageState extends State<DXModifierLevelPage> {
       ),
       body: SafeArea(
         child: Center(
-          child: DXModifierLevel<String>(
-            items: List.generate(100, (index) => '$index'),
-            builder: (BuildContext context, item) {
+          child: DXModifierLevel(
+            itemCount: items.length,
+            selectedIndex: _selectedModifierLevelIndex,
+            builder: (BuildContext context, int index) {
               return Text(
-                item.toString(),
+                items[index].toString(),
                 style: Theme.of(context).textTheme.bodyText1,
               );
+            },
+            onChanged: (index){
+              setState(() {
+                _selectedModifierLevelIndex = index;
+              });
             },
           ),
         ),

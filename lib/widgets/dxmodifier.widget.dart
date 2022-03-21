@@ -78,17 +78,16 @@ class DXModifier extends StatelessWidget {
                 }).toList(),
               ),
               const Divider(color: Colors.transparent, height: 6,),
-              Builder(builder: (context) => children[index].builder(context, index),),
-              // Wrap(
-              //   runSpacing: gap,
-              //   spacing: gap,
-              //   children: List.generate(children[index].itemCount, (index) {
-              //     return FractionallySizedBox(
-              //       widthFactor: eachElementWidthInFractional,
-              //       child: children[index],
-              //     );
-              //   }),
-              // ),
+              Wrap(
+                runSpacing: gap,
+                spacing: gap,
+                children: List.generate(children[index].itemCount, (index1) {
+                  return FractionallySizedBox(
+                    widthFactor: eachElementWidthInFractional,
+                    child: children[index].builder(context, index1),
+                  );
+                }),
+              ),
             ],
           );
         }
