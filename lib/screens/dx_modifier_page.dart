@@ -19,6 +19,16 @@ class _DXModifierPageState extends State<DXModifierPage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      _showBugsDialog();
+    });
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -89,6 +99,35 @@ class _DXModifierPageState extends State<DXModifierPage> {
                 Text('- Customize children cross axis count'),
                 Text('- Using Builder instead of Static List to improve performance and customizable'),
                 Text('- Fixed Bug on Scroll Limited Error'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+
+  Future<void> _showBugsDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Warning'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('This Widget Has Bugs, Working On Progress to Fix it.'),
               ],
             ),
           ),

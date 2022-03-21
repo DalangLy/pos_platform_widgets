@@ -85,6 +85,7 @@ class _DXChoicePageState extends State<DXChoicePage> {
                 Text('- Customize Cross Axis Count'),
                 Text('- Customize Gap Between Item'),
                 Text('- Fixed Bug on each item size not equal'),
+                Text('- Use Builder instead of static List'),
               ],
             ),
           ),

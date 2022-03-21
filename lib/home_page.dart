@@ -60,6 +60,7 @@ class _HomePageState extends State<HomePage> {
                   selected: _navigation[index].path == path,
                   onTap: (){
                     AutoRouter.of(context).pushNamed(_navigation[index].path,);
+                    Navigator.of(context).pop();
                   },
                 );
               },

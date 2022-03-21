@@ -28,7 +28,9 @@ class _DXSelectChoicePageState extends State<DXSelectChoicePage> {
               items: List.generate(100, (index) => '$index'),
               builder: (context, item){
                 return ListTile(
+                  tileColor: Colors.blue,
                   leading: const Icon(Icons.circle),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                   title: Text(item.toString(),),
                 );
               },
@@ -60,7 +62,11 @@ class _DXSelectChoicePageState extends State<DXSelectChoicePage> {
             child: ListBody(
               children: const <Widget>[
                 Text('21-03-2022'),
-                Text('- No Update'),
+                Text('- Add Padding'),
+                Text('- Custom item Gap'),
+                Text('- Fixed Bugs on Scroll'),
+                Text('- Custom Item List Container Border Radius'),
+                Text('- Add Space between Item List and Confirm Button'),
               ],
             ),
           ),

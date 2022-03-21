@@ -73,7 +73,9 @@ class _DXAuthorizeStepState extends State<DXAuthorizeStep> with SingleTickerProv
                     items: List.generate(100, (index) => '$index'),
                     builder: (context, item){
                       return ListTile(
+                        tileColor: Colors.blue,
                         leading: const Icon(Icons.circle),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                         title: Text(item.toString(),),
                       );
                     },
