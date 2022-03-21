@@ -5,7 +5,8 @@ class DXModifierLevel<T> extends StatelessWidget {
   final Widget Function(BuildContext context, int index,) builder;
   final Function(int index,)? onChanged;
   final int selectedIndex;
-  const DXModifierLevel({Key? key, required this.itemCount, required this.builder, this.onChanged, required this.selectedIndex,}) : super(key: key);
+  final WrapAlignment alignment;
+  const DXModifierLevel({Key? key, required this.itemCount, required this.builder, this.onChanged, required this.selectedIndex, this.alignment = WrapAlignment.start,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class DXModifierLevel<T> extends StatelessWidget {
         return Wrap(
           runSpacing: gap,
           spacing: gap,
-          alignment: WrapAlignment.end,
+          alignment: alignment,
           children: List.generate(itemCount, (index) {
             return FractionallySizedBox(
               widthFactor: eachElementWidthInFractional,
