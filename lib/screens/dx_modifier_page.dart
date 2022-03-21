@@ -41,7 +41,7 @@ class _DXModifierPageState extends State<DXModifierPage> {
             width: 600,
             child: DXModifier(
               title: const Text('Modifier'),
-              index: _selectIndex,
+              selectedIndex: _selectIndex,
               onChange: (index){
                 setState(() {
                   _selectIndex = index;

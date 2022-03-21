@@ -167,7 +167,7 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
   Widget _buildModifier(){
     return DXModifier(
       title: const Text('Modifier'),
-      index: _selectedIndex,
+      selectedIndex: _selectedIndex,
       onChange: (index){
         setState(() {
           _selectedIndex = index;

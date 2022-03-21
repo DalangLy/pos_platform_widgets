@@ -4,9 +4,9 @@ import 'dxchoice.widget.dart';
 class DXModifier extends StatelessWidget {
   final Widget title;
   final List<DXChoice> children;
-  final int index;
+  final int selectedIndex;
   final Function(int index)? onChange;
-  const DXModifier({Key? key, required this.title, required this.children, required this.index, this.onChange,}) : super(key: key);
+  const DXModifier({Key? key, required this.title, required this.children, required this.selectedIndex, this.onChange,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,12 +81,15 @@ class DXModifier extends StatelessWidget {
               Wrap(
                 runSpacing: gap,
                 spacing: gap,
-                children: List.generate(children[index].itemCount, (index1) {
-                  return FractionallySizedBox(
-                    widthFactor: eachElementWidthInFractional,
-                    child: children[index].builder(context, index1),
-                  );
-                }),
+                children: List.generate(
+                  children[selectedIndex].itemCount, (dxChoiceIndex) {
+                    final DXChoice choice =  children[selectedIndex];
+                    return FractionallySizedBox(
+                      widthFactor: eachElementWidthInFractional,
+                      child: choice.builder(context, dxChoiceIndex),
+                    );
+                  },
+                ),
               ),
             ],
           );
