@@ -9,6 +9,12 @@ class DXChoicePage extends StatefulWidget {
 }
 
 class _DXChoicePageState extends State<DXChoicePage> {
+  final List<String> items = [
+    'Dine-In',
+    'Delivery',
+    'Take Away'
+  ];
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +32,32 @@ class _DXChoicePageState extends State<DXChoicePage> {
             width: 300,
             child: DXChoice(
               title: const Text('Channels'),
-              children: <Widget>[
-                ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: const Text('Dine-In'), onTap: (){},),
-                ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: const Text('Delivery'), onTap: (){},),
-                ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: const Text('Take Away'), onTap: (){},),
-              ],
+              itemCount: items.length,
+              builder: (context, index){
+                return DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(10.0,),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 40,
+                          child: Icon(_selectedIndex == index ? Icons.radio_button_checked : Icons.radio_button_unchecked,),
+                        ),
+                        Text(items[index])
+                      ],
+                    ),
+                  ),
+                );
+              },
+              onChanged: (index){
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
             ),
           ),
         ),
@@ -55,7 +82,9 @@ class _DXChoicePageState extends State<DXChoicePage> {
             child: ListBody(
               children: const <Widget>[
                 Text('21-03-2022'),
-                Text('- No Update'),
+                Text('- Customize Cross Axis Count'),
+                Text('- Customize Gap Between Item'),
+                Text('- Fixed Bug on each item size not equal'),
               ],
             ),
           ),

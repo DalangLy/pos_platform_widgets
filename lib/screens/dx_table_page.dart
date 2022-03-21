@@ -28,8 +28,23 @@ class _DXTablePageState extends State<DXTablePage> {
             decoration: BoxDecoration(
               border: Border.all(),
             ),
-            child: const DXTable(
-              child: Text('7', style: TextStyle(fontSize: 90),),
+            child: DXTable(
+              child: const Text('7', style: TextStyle(fontSize: 90),),
+              onClick: (){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text('You Clicked on Table', ),
+                    duration: const Duration(milliseconds: 300,),
+                    action: SnackBarAction(
+                      label: 'Dismiss',
+                      textColor: Colors.yellow,
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      },
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ),

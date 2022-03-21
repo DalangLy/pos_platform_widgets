@@ -81,12 +81,12 @@ class DXModifier extends StatelessWidget {
               Wrap(
                 runSpacing: gap,
                 spacing: gap,
-                children: children[index].children.map<Widget>((e){
+                children: List.generate(children[index].itemCount, (index) {
                   return FractionallySizedBox(
                     widthFactor: eachElementWidthInFractional,
-                    child: e,
+                    child: children[index],
                   );
-                }).toList(),
+                }),
               ),
             ],
           );

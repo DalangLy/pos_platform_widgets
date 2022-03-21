@@ -34,11 +34,17 @@ class DXTableOrderList<T> extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: actions ?? [
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.chevron_left,),),
+                  SizedBox(
+                    height: double.infinity,
+                    child: ElevatedButton(onPressed: (){}, child: const Icon(Icons.chevron_left,),),
+                  ),
                   const SizedBox(
                     width: 20,
                   ),
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.chevron_right,),),
+                  SizedBox(
+                    height: double.infinity,
+                    child: ElevatedButton(onPressed: (){}, child: const Icon(Icons.chevron_right,),),
+                  ),
                 ],
               ),
             ),

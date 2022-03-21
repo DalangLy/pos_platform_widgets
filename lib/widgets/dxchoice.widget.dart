@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class DXChoice extends StatelessWidget {
   final Widget title;
-  final List<Widget> children;
-  const DXChoice({Key? key, required this.title, required this.children,}) : super(key: key);
+  final int itemCount;
+  final Widget Function(BuildContext context, int index) builder;
+  final Function(int index)? onChanged;
+  const DXChoice({Key? key, required this.title, required this.itemCount, required this.builder, this.onChanged,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +32,22 @@ class DXChoice extends StatelessWidget {
             Wrap(
               runSpacing: gap,
               spacing: gap,
-              children: children.map<Widget>((e){
-                return FractionallySizedBox(
-                  widthFactor: eachElementWidthInFractional,
-                  child: ClipRect(child: e),
+              children: List.generate(itemCount, (index) {
+                return GestureDetector(
+                  onTap: (){
+                    if(onChanged == null){
+                      return;
+                    }
+                    onChanged!(index);
+                  },
+                  child: FractionallySizedBox(
+                    widthFactor: eachElementWidthInFractional,
+                    child: ClipRect(
+                      child: builder(context, index),
+                    ),
+                  ),
                 );
-              }).toList(),
+              }),
             ),
           ],
         );

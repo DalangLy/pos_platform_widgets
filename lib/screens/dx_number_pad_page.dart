@@ -31,12 +31,51 @@ class _DXNumberPadPageState extends State<DXNumberPadPage> {
                 ),
               ),
               onClearClick: (){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text('You Clicked on Clear Button', ),
+                    duration: const Duration(milliseconds: 300,),
+                    action: SnackBarAction(
+                      label: 'Dismiss',
+                      textColor: Colors.yellow,
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      },
+                    ),
+                  ),
+                );
                 print('clear');
               },
               onNumberClick: (String data){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('You Clicked on $data', ),
+                    duration: const Duration(milliseconds: 300,),
+                    action: SnackBarAction(
+                      label: 'Dismiss',
+                      textColor: Colors.yellow,
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      },
+                    ),
+                  ),
+                );
                 print(data);
               },
               onRemoveClick: (){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text('You Clicked on Remove Button', ),
+                    duration: const Duration(milliseconds: 300,),
+                    action: SnackBarAction(
+                      label: 'Dismiss',
+                      textColor: Colors.yellow,
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      },
+                    ),
+                  ),
+                );
                 print('Remove');
               },
             ),

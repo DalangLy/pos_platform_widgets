@@ -151,6 +151,11 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
   }
 
   int _selectedIndex = 0;
+  final List<String> items = [
+    'Dine-In',
+    'Delivery',
+    'Take Away'
+  ];
   Widget _buildModifier(){
     return DXModifier(
       title: const Text('Modifier'),
@@ -163,17 +168,20 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
       children: <DXChoice>[
         DXChoice(
           title: const Text('Sizes'),
-          children: <Widget>[
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'))
-          ],
+          itemCount: 1,
+          builder: (context, index){
+            return ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'));
+          },
         ),
         DXChoice(
           title: const Text('Channels'),
-          children: <Widget>[
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Dine-In')),
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Delivery')),
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Take Away')),
-          ],
+          itemCount: items.length,
+          builder: (context, index){
+            return ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: Text(items[index]), onTap: (){},);
+          },
+          onChanged: (index){
+            print(index);
+          },
         ),
       ],
     );
@@ -185,17 +193,20 @@ class _DXItemDetailPageState extends State<DXItemDetailPage> {
       children: [
         DXChoice(
           title: const Text('Sizes'),
-          children: [
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99')),
-          ],
+          itemCount: 1,
+          builder: (context, index){
+            return ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Normal \$ 1.99'));
+          },
         ),
         DXChoice(
           title: const Text('Channels'),
-          children: [
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Dine In')),
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Delivery')),
-            ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.circle,), label: const Text('Take Away')),
-          ],
+          itemCount: items.length,
+          builder: (context, index){
+            return ListTile(tileColor: Colors.red, leading: const Icon(Icons.circle,), title: Text(items[index]), onTap: (){},);
+          },
+          onChanged: (index){
+            print(index);
+          },
         ),
       ],
     );

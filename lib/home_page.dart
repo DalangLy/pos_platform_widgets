@@ -35,7 +35,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Platform Widgets'),),
+      appBar: AppBar(
+        title: const Text('Platform Widgets'),
+        actions: [
+          IconButton(onPressed: (){
+            _showMyDialog();
+          }, icon: const Icon(Icons.info),),
+        ],
+      ),
       drawer: Drawer(
         child: AnimatedBuilder(
           animation: AutoRouter.of(context),
@@ -61,6 +68,42 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: const AutoRouter(),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('What News'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('21-03-2022'),
+                Text('- DX Number Pad'),
+                Text('- DX Table'),
+                Text('- DX Tab'),
+                Text('- DX Authorize Step'),
+                Text('- DX Choice'),
+                Text('- DX Variation List'),
+                Text('- DX Modifier'),
+                Text('- DX Modifier Level'),
+                Text('- DX Item Detail'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
