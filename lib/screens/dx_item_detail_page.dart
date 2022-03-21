@@ -7,9 +7,14 @@ import '../widgets/dxmodifier.level.widget.dart';
 import '../widgets/dxmodifier.widget.dart';
 import '../widgets/dxvariation.list.widget.dart';
 
-class DXItemDetailPage extends StatelessWidget {
+class DXItemDetailPage extends StatefulWidget {
   const DXItemDetailPage({Key? key}) : super(key: key);
 
+  @override
+  State<DXItemDetailPage> createState() => _DXItemDetailPageState();
+}
+
+class _DXItemDetailPageState extends State<DXItemDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +45,40 @@ class DXItemDetailPage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          _showMyDialog();
+        },
+        child: const Icon(Icons.help_outline,),
+      ),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('What News'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('21-03-2022'),
+                Text('- Fix Bugs on scrolling inside variation'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -99,7 +138,6 @@ class DXItemDetailPage extends StatelessWidget {
     );
   }
 
-
   Widget _buildModifierLevel(){
     return DXModifierLevel<String>(
       items: List.generate(5, (index) => '$index'),
@@ -112,10 +150,16 @@ class DXItemDetailPage extends StatelessWidget {
     );
   }
 
+  int _selectedIndex = 0;
   Widget _buildModifier(){
     return DXModifier(
       title: const Text('Modifier'),
-      index: 1,
+      index: _selectedIndex,
+      onChange: (index){
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
       children: <DXChoice>[
         DXChoice(
           title: const Text('Sizes'),

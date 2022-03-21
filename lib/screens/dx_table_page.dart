@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:post_platform_widgets/widgets/dxtable.widget.dart';
 
-class DXTablePage extends StatelessWidget {
+class DXTablePage extends StatefulWidget {
   const DXTablePage({Key? key}) : super(key: key);
 
+  @override
+  State<DXTablePage> createState() => _DXTablePageState();
+}
+
+class _DXTablePageState extends State<DXTablePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +34,43 @@ class DXTablePage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          _showMyDialog();
+        },
+        child: const Icon(Icons.help_outline,),
+      ),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('What News'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('21-03-2022'),
+                Text('- Draw Table Icon'),
+                Text('- Add Cursor State on Mouse Hover to "hand icon"'),
+                Text('- Table Icon Resize Dynamically base on parent size'),
+                Text('- "Clip" Center Child won\'t leak out of it container'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
